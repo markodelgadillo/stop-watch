@@ -5,9 +5,11 @@ var timer = {
 }
 
 function start() {
-  timer.id = setInterval(function(){
-    timer.seconds++
-  },1000)
+  if (!timer.id) {
+    timer.id = setInterval(function(){
+      timer.seconds++
+    },1000)
+  }
 }
 
 function stop() {
@@ -27,16 +29,3 @@ var $stop = document.querySelector('#stop')
 $stop.addEventListener('click', stop)
 
 setInterval(update, 16)
-
-
-
-
-/*
-var $stop = document.querySelector('#stop')
-#stop.addEventListener('click', stop)
-
-function stop () {
-clearInterval(watch.id)
-
-}
-*/
